@@ -1,0 +1,25 @@
+#Acuity: Untracked files\folders 
+ 
+#Ignore hidden files. 
+.* 
+!.gitignore 
+!.gitkeep 
+ 
+#Only keep the SoapUI project file. 
+/mock/** 
+!/mock/*.xml 
+!/mock/.gitkeep 
+ 
+#Only keep Swagger or WSDL. 
+/contract/** 
+!/contract/*.yaml 
+!/contract/*.wsdl 
+!/contract/.gitkeep 
+ 
+#Misc files. 
+*.iml 
+*.zip 
+*.class 
+ 
+#Ignore Maven build folder. 
+**/target 
