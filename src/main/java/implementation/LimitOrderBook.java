@@ -75,6 +75,11 @@ public class LimitOrderBook implements OrderBook {
         return list.toString();
     }
 
+    @Override
+    public int executeMatchingOrders() {
+        return MatchingEngine.executeOrders(orderQueue);
+    }
+
     private int generateOrderId(){
         return random.nextInt(999999999);
     }

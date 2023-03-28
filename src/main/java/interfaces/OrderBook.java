@@ -11,4 +11,5 @@ public interface OrderBook {
     Order getOrder(long id);
     String displayOrderBook();
     String viewOrdersByPriceLevelAndSide(double priceLevel, String side);
+    int executeMatchingOrders();
 }

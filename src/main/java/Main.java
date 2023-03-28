@@ -1,6 +1,5 @@
 package main.java;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import main.java.entity.Order;
 import main.java.implementation.LimitOrderBook;
 import main.java.interfaces.OrderBook;
@@ -21,6 +20,7 @@ public class Main {
             System.out.println("3. Delete an order");
             System.out.println("4. View orders by price level and side");
             System.out.println("5. Display Limit Order Book");
+            System.out.println("6. Match Orders");
             System.out.println("0. Exit");
             if(sc.hasNextInt()){
                 entry = sc.nextInt();
@@ -39,6 +39,9 @@ public class Main {
                         break;
                     case 5:
                         displayLimitOrderBook();
+                        break;
+                    case 6:
+                        matchOrders();
                         break;
                     case 0:
                         System.out.println("Exiting...");
@@ -114,5 +117,11 @@ public class Main {
             side = orderBook.SELL;
         }
         System.out.println(orderBook.viewOrdersByPriceLevelAndSide(price,side));
+    }
+
+    private static void matchOrders(){
+        int ordersMatched = orderBook.executeMatchingOrders();
+        System.out.println(String.format("There were %d orders matched.",ordersMatched));
+        displayLimitOrderBook();
     }
 }
